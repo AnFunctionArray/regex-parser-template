@@ -1,0 +1,1 @@
+^(#include\s*+(?<filename>\"(?<filenameraw>\S*?)\"(?{parseregexfile($+{filenameraw})}))(\s*+,\s*+(?&filename))*+\s*+)*+(#entry\s*+(?<entry>\^?+\S*+)(?{push @entries, $+{entry}})\s*+)++

@@ -1,0 +1,5 @@
+(?<unary>((?<#restrictoutsidefacet>(?&unaryopfacet)(?!(?&castexpr)))|(?&unaryop)(?&castexprfacet))
+	|\s*+(offset|(?&segmentregisters):)(?&unaryexpr)(?C56))
+
+
+(?<unaryop>\s*+([\+\-])(?C19))

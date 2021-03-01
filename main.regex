@@ -1,0 +1,24 @@
+#include "inner.regex", "unary.regex", "binary.regex", "cexpr.regex"
+#entry ^entry
+#entry ^resolver
+
+(?<instructions>(?!=\.|;)\w++)
+
+(?<entry>(?&startfunc)|(?&endproc)|(?&var)|(?&label)|((?&instructions)|(j\w\w))(\s++(?<op0>(?&expr))(,(?C111)(?<op1>(?&expr)))?+
+
+    (?<undefined>(?:(,)\s*+((?!;)\S)++|((?!;)\S)++))?+(;.*)?+)?+(?C101))
+
+(?<label>(?&identifierlabel))
+
+(?<var>(?&assignorsomething))
+
+(?<startfunc>(?&identifierstartfunc))
+(?<endproc>(?&identifierendfunc))
+
+(?<identifierstartfunc>(?!(?&keywordlist))((?&identifierraw))\s*+proc(?C102)\s*+)
+(?<identifierendfunc>(?!(?&keywordlist))((?&identifierraw))\s*+endp(?C103)\s*+)
+(?<identifierlabel>(?!(?&keywordlist))((?&identifierraw))\s*+:(?C104)\s*+)
+
+(?<dataspecifiers>dd|db|dw|dq|xmmword)
+
+(?<resolver>(?!(?&keywordlist))((?&identifierraw))\s*+((?&dataspecifiers))(?C107))

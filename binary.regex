@@ -1,0 +1,29 @@
+
+(?<orlogicplusrest>(?<orlogicop>(?<orlogicopraw>\|\|)(?&orlogiorsomething)(?!(?&andlogicplusrestfacet))
+    (?C29))|(?&andlogicplusrest)(?&orlogicop)?)
+
+(?<andlogicplusrest>(?<andlogicop>(?<andlogicopraw>&&)(?&orlogiorsomething)(?!(?&orplusrestfacet))
+    (?C28))|(?&orplusrest)(?&andlogicop)?)
+
+(?<orplusrest>(?<orop>(?!\|\|)(?<oropraw>\|)(?&orlogiorsomething)(?!(?&xorplusrestfacet))
+    (?C27))|(?&xorplusrest)(?&orop)?)
+
+(?<xorplusrest>(?<xorop>(?<xoropraw>\^)(?&orlogiorsomething)(?!(?&andplusrestfacet))
+    (?C26))|(?&andplusrest)(?&xorop)?)
+
+(?<andplusrest>(?<andop>(?!&&)(?<andopraw>&)(?&orlogiorsomething)(?!(?&eqplusrestfacet))
+    (?C25))|(?&eqplusrest)(?&andop)?)
+
+(?<eqplusrest>(?<eqop>(?<eqopraw>==|!=)(?&orlogiorsomething)(?!(?&relplusrestfacet))
+    (?C24))|(?&relplusrest)(?&eqop)?)
+
+(?<relplusrest>(?<relop>(?<relopraw>(?!<<)<|(?!>>)>|<=|>=)(?&orlogiorsomething)(?!(?&shiftplusrestfacet))
+    (?C23))|(?&shiftplusrest)(?&relop)?)
+
+(?<shiftplusrest>(?<shiftop>(?<shiftopraw><<|>>)(?&orlogiorsomething)(?!(?&addmulplusrestfacet))
+    (?C22))|(?&addmulplusrest)(?&shiftop)?)
+
+(?<addmulplusrest>(?<addop>(?<addopraw>[\+\-])((?&orlogiorsomething)(?!(?&mulopfacet))
+    (?C20)))|(?&mulop)(?&addop)?)
+
+(?<mulop>(?<mulopraw>[\*\/\%])(?&orlogiorsomething)(?C21))
